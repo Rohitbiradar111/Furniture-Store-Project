@@ -36,7 +36,7 @@ export class AuthService {
 
     async HandleGithubLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Github, conf.authSuccessUrl, conf.authFailedUrl);
+            return await this.account.createOAuth2Session(OAuthProvider.Github, "https://furnistorewebsite.netlify.app", "https://furnistorewebsite.netlify.app/*");
         } catch (error) {
             console.log("auth.js => HandleGithubLogin => ", error.message);
         }
@@ -44,7 +44,7 @@ export class AuthService {
 
     async HandleGoogleLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Google, conf.authSuccessUrl, conf.authFailedUrl);
+            return await this.account.createOAuth2Session(OAuthProvider.Google, "https://furnistorewebsite.netlify.app", "https://furnistorewebsite.netlify.app/*");
         } catch (error) {
             console.log("auth.js => HandleGoogleLogin => ", error.message);
         }
@@ -52,7 +52,7 @@ export class AuthService {
 
     async HandleLinkedinLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Linkedin, conf.authSuccessUrl, conf.authFailedUrl);
+            return await this.account.createOAuth2Session(OAuthProvider.Linkedin, "https://furnistorewebsite.netlify.app", "https://furnistorewebsite.netlify.app/*");
         } catch (error) {
             console.log("auth.js => HandleLinkedinLogin => ", error.message);
         }
