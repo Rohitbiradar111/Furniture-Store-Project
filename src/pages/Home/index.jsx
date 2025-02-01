@@ -61,7 +61,7 @@ export default function Home() {
                             ref={sliderRef}
                             items={[...Array(3)].map(() => (
                                 <React.Fragment key={Math.random()}>
-                                    <div className="flex h-[448px] items-center bg-white-a700 bg-[url(images/img_frame_125.png)] bg-cover bg-no-repeat 
+                                    <div className="flex h-[448px] items-center bg-white-a700 bg-[url(public/images/img_frame_125.png)] bg-cover bg-no-repeat 
                                     py-[114px] md:h-auto md:py-5">
                                         <div className="container-xs flex justify-center md:px-5">
                                             <div className="w-full">
