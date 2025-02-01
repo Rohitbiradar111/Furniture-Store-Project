@@ -78,8 +78,6 @@ Contributions are always welcomed. Feel free to raise issues or send in pull req
 
 [Appwrite](https://appwrite.io/)
 
-[TinyMCE](https://www.tiny.cloud/)
-
 [React Hook Form](https://react-hook-form.com/)
 
 [Redux Toolkit](https://redux-toolkit.js.org/)
