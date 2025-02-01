@@ -36,7 +36,7 @@ export class AuthService {
 
     async HandleGithubLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Github, "http://localhost:5173/", "http://localhost:5173/*");
+            return await this.account.createOAuth2Session(OAuthProvider.Github, conf.authSuccessUrl, conf.authFailedUrl);
         } catch (error) {
             console.log("auth.js => HandleGithubLogin => ", error.message);
         }
@@ -44,7 +44,7 @@ export class AuthService {
 
     async HandleGoogleLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Google, "http://localhost:5173/", "http://localhost:5173/*");
+            return await this.account.createOAuth2Session(OAuthProvider.Google, conf.authSuccessUrl, conf.authFailedUrl);
         } catch (error) {
             console.log("auth.js => HandleGoogleLogin => ", error.message);
         }
@@ -52,7 +52,7 @@ export class AuthService {
 
     async HandleLinkedinLogin() {
         try {
-            return await this.account.createOAuth2Session(OAuthProvider.Linkedin, "http://localhost:5173/", "http://localhost:5173/*");
+            return await this.account.createOAuth2Session(OAuthProvider.Linkedin, conf.authSuccessUrl, conf.authFailedUrl);
         } catch (error) {
             console.log("auth.js => HandleLinkedinLogin => ", error.message);
         }
