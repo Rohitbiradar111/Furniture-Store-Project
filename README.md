@@ -1,8 +1,87 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center" style="font-weight: bold;">FurniStore - Furniture Store Website</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+<a href="#technologies">Technologies</a>
+<a href="#started">Getting Started</a>
+<a href="#contribute">Contribute</a> 
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+<p align="center">
+FurniStore is a modern Furniture Store platform built with React and Vite, featuring a clean and responsive user interface. 
+<br>
+.......... 
+<br>
+........
+</p>
+
+
+<p align="center">
+<a href="https://furnistorewebsite.netlify.app/">📱 Visit this Project</a>
+</p>
+
+<h2 id="technologies">💻 Technologies</h2>
+
+- HTML
+- CSS
+- React
+- Tailwind CSS
+- Appwrite
+- EmailJS
+- Redux Toolkit(RTK)
+- TailwindCSS
+- TailwindCSS Forms
+- React Table
+- React Hook Form
+- React Router
+- libphonenumber-js
+- Razorpay
+- React Alice Carousel
+- React Select
+- React star rating component
+- React Helmet
+
+<h2 id="started">🚀 Getting started</h2>
+
+ 
+
+<h3>Cloning</h3>
+
+Clone the project by adding the following command in the terminal.
+Make sure your have git installed and added to path.
+
+```bash
+git clone https://github.com/Rohitbiradar111/Blog-Project.git
+```
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+<h2 id="contribute">📫 Contribute</h2>
+
+Contributions are always welcomed. Feel free to raise issues or send in pull requests.
+
+<h3>Documentations that might help</h3>
+
+[Official React Documentation](https://react.dev/)
+
+[TailWind CSS](https://tailwindcss.com/)
+
+[Appwrite](https://appwrite.io/)
+
+[TinyMCE](https://www.tiny.cloud/)
+
+[React Hook Form](https://react-hook-form.com/)
+
+[Redux Toolkit](https://redux-toolkit.js.org/)
+
+[React Router](https://reactrouter.com/)
