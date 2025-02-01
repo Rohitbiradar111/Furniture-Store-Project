@@ -97,7 +97,6 @@ export default function Wishlist() {
                                                 key={product.id}
                                                 productName={product.name}
                                                 productImage={product.image_path}
-                                                productColor={`Color: ${product?.productColor || "Not specified"}`}
                                                 currentPrice={`$${product.discount_price}`}
                                                 originalPrice={`$${product.price}`}
                                                 onAddToCart={() => addToCart(product)}

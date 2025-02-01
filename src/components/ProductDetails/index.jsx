@@ -5,7 +5,6 @@ export default function ProductDetails({
     productName = "Wodden Chair",
     currentPrice = "$150",
     originalPrice = "$200",
-    productColor = "Color: Brown",
     productImage = "images/img_paste_image.png",
     onAddToCart = () => { },
     onRemove = () => { },
@@ -32,11 +31,6 @@ export default function ProductDetails({
                                 {originalPrice}
                             </Text>
                         </div>
-                    </div>
-                    <div className="flex flex-wrap items-center justify-between gap-5">
-                        <Text size="textxs" as="p" className="text-[12px] font-normal !text-black-900">
-                            {productColor}
-                        </Text>
                     </div>
                 </div>
                 <div className="flex items-center justify-center">
