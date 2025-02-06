@@ -9,12 +9,13 @@ import { login as authLogin } from "../../store/authSlice.js";
 
 export default function Login() {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm();
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [error, setError] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const authStatus = useSelector((state) => state.auth.status);
+    const [guestLoginText, setGuestLoginText] = useState("LOGIN AS A GUEST");
 
     useEffect(() => {
         if (authStatus) navigate("/");
@@ -78,6 +79,12 @@ export default function Login() {
             setError("Linkedin login failed. Please try again.");
             console.error("Linkedin Login Error:", error.message);
         }
+    }
+
+    const handleGuestLogin = () => {
+        setValue("email", "rohit@gmail.com");
+        setValue("password", "rohit@login");
+        setGuestLoginText("PLEASE CLICK THE LOGIN BUTTON NOW");
     }
 
     return (
@@ -230,6 +237,22 @@ export default function Login() {
                                         <Img src="images/img_linkedin_logo.svg" alt="linkedin logo" />
                                     </Button>
                                 </div>
+                                <div className="flex items-center justify-center gap-8 sm:flex-col">
+                                    <div className="h-px flex-1 bg-gray-200_01 sm:self-stretch" />
+                                    <Text as="p" className="text-[16px] font-normal !text-black-900">
+                                        Or
+                                    </Text>
+                                    <div className="h-px flex-1 bg-gray-200_01 sm:self-stretch" />
+                                </div>
+                                <Button
+                                    size="5xl"
+                                    variant="fill"
+                                    shape="round"
+                                    className="self-stretch rounded-[24px] px-[34px] font-semibold sm:px-5 text-base active:bg-green-500"
+                                    onClick={handleGuestLogin}
+                                >
+                                    {guestLoginText}
+                                </Button>
                                 <div className="flex flex-wrap">
                                     <Text size="texts" as="p"
                                         className="text-[18px] font-normal !text-black-900">
