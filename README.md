@@ -31,8 +31,6 @@ Employed EmailJS to enable users to send messages directly from the application,
 
 <h2 id="technologies">💻 Technologies</h2>
 
-- HTML
-- CSS
 - React
 - TailwindCSS
 - Appwrite
@@ -79,7 +77,7 @@ Contributions are always welcomed. Feel free to raise issues or send in pull req
 
 <h3>Documentations that might help</h3>
 
-[Official React Documentation](https://react.dev/)
+[React](https://react.dev/)
 
 [TailWind CSS](https://tailwindcss.com/)
 
