@@ -1,35 +1,27 @@
+<div align="center">
+  <div>
+    <a href="https://furnistorewebsite.netlify.app/" target="_blank">
+      <img src="https://github.com/user-attachments/assets/28f925ef-2479-49a4-976b-15ecbe7acbfb" alt="Project Image">
+    </a>
+  </div>
+  <h1 align="center">FurniStore - Furniture Store Website</h1>
+</div>
 
-<h1 align="center" style="font-weight: bold;">FurniStore - Furniture Store Website</h1>
+## 📋 <a name="table">Table of Contents</a>
 
-<p align="center">
-<a href="#technologies">Technologies</a>
-<a href="#started">Getting Started</a>
-<a href="#contribute">Contribute</a> 
-</p>
+1. 💡 [Overview](#overview)
+2. 👩‍💻 [Tech Stack](#tech-stack)
+3. ✨ [Features](#features)
+4. 📦 [Getting Started](#getting-started)
+5. 📖 [Documentation](#documentation)
+6. 📫 [Contribute](#contribute)
+7. 🐛 [Issues](#issues)
 
+## <a name="overview">💡 Overview</a>
 
-<p align="center">
-FurniStore is a modern Furniture Store platform built with React and Vite, featuring a clean and responsive user interface. 
-<br>
-<br>
-Implemented user authentication using OAuth protocols, integrating Google, GitHub, and LinkedIn for seamless and secure login experiences, while React Router was utilized to enable smooth navigation with dynamic routing, nested routes, and route protection for authenticated users.
-<br>
-<br>
-Developed a fully responsive user interface using Tailwind CSS, ensuring a visually appealing and functional design across devices, while Tailwind Forms enhanced form aesthetics and usability. Various React components such as React Alice Carousel, React Select, React Table, and React Rating Stars were integrated to improve interactivity, and Redux was employed for effective state management, maintaining a centralized and predictable data flow throughout the application.
-<br>
-<br>
-Implemented React Helmet for SEO optimization by dynamically managing metadata, improving visibility and indexing on search engines. Form validation was handled with React Hook Form to ensure real-time user input validation, while libphonenumber.js was integrated for international phone number support. Additionally, features such as add-to-cart and add-to-wishlist functionalities were developed, and Razorpay was integrated as a secure payment gateway to facilitate smooth transactions.
-<br>
-<br>
-Employed EmailJS to enable users to send messages directly from the application, promoting immediate communication and engagement. Appwrite was utilized as the backend service to provide authentication.
-</p>
+FurniStore is a modern Furniture Store platform built with React and Vite, featuring a clean and responsive user interface.
 
-
-<p align="center">
-<a href="https://furnistorewebsite.netlify.app/">📱 Visit this Project</a>
-</p>
-
-<h2 id="technologies">💻 Technologies</h2>
+## <a name="tech-stack">👩‍💻 Tech Stack</a>
 
 - React
 - TailwindCSS
@@ -47,35 +39,61 @@ Employed EmailJS to enable users to send messages directly from the application,
 - React rating stars component
 - React Helmet
 
-<h2 id="started">🚀 Getting started</h2>
+## <a name="features">✨ Features</a>
 
- 
+- OAuth Authentication with Google, GitHub, and LinkedIn for secure and seamless login.
 
-<h3>Cloning</h3>
+- Route Protection using React Router to restrict access to authenticated users.
 
-Clone the project by adding the following command in the terminal.
-Make sure your have git installed and added to path.
+- Dynamic & Nested Routing enabled with React Router for smooth navigation.
+
+- Fully Responsive UI built with Tailwind CSS for consistent appearance across all devices.
+
+- Enhanced Form Styling using Tailwind Forms for better form design and usability.
+
+- Interactive UI Components integrated, including: React Alice Carousel, React Select, React Table, React Rating Stars.
+
+- State Management with Redux for centralized and predictable data flow.
+
+- SEO Optimization with React Helmet for dynamic metadata and improved search engine indexing.
+
+- Real Time Form Validation using React Hook Form.
+
+- International Phone Number Support with libphonenumber.js.
+
+- Ecommerce Features: Add to cart and wishlist functionality.
+
+- Payment Integration with Razorpay for secure transactions.
+
+- User Messaging via EmailJS for direct in-app email sending.
+
+- Backend Services Powered by Appwrite, including authentication and data handling.
+
+## <a name="getting-started">📦 Getting Started</a>
+
+Follow these steps to set up the project locally on your machine.
+
+**clone the repository**
 
 ```bash
 git clone https://github.com/Rohitbiradar111/Furniture-Store-Project.git
 ```
-Install dependencies
+
+**Install dependencies**
 
 ```bash
   npm install
 ```
 
-Start the server
+**Start the server**
 
 ```bash
   npm run dev
 ```
 
-<h2 id="contribute">📫 Contribute</h2>
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
 
-Contributions are always welcomed. Feel free to raise issues or send in pull requests.
-
-<h3>Documentations that might help</h3>
+## <a name="documentation">📖 Documentation</a>
 
 [React](https://react.dev/)
 
@@ -92,3 +110,27 @@ Contributions are always welcomed. Feel free to raise issues or send in pull req
 [Email JS](https://www.emailjs.com/)
 
 [Razorpay](https://razorpay.com/)
+
+## <a name="contribute">📫 Contribute</a>
+
+Contributions are always welcome. Please follow these steps to contribute:
+
+1. **Fork the repository.**
+2. **Create a new branch** (`git checkout -b feature/your-feature-name`).
+3. **Make your changes** and commit them (`git commit -m 'Add some feature'`).
+4. **Push to the branch** (`git push origin feature/your-feature-name`).
+5. **Open a pull request**.
+
+Please make sure to update tests as appropriate.
+
+## <a name="issues">🐛 Issues</a>
+
+If you encounter any issues while using or setting up the project, please check the issues section to see if it has already been reported. If not, feel free to open a new issue detailing the problem.
+
+When reporting an issue, please include:
+
+- A clear and descriptive title.
+- A detailed description of the problem.
+- Steps to reproduce the issue.
+- Any relevant logs or screenshots.
+- The environment in which the issue occurs (OS, browser, Node.js version, etc.).
