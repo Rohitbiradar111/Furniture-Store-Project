@@ -72,13 +72,13 @@ export default function PaymentSection() {
                             <PaymentStepWrapper cartText="Shopping cart" />
                             <PaymentStepWrapper cartText="Shipping address" />
                         </div>
-                        <div className="flex w-[32%] flex-wrap items-center gap-4 px-6 md:w-full sm:px-5">
+                        <div className="flex w-60 flex-wrap items-center justify-center gap-4 border-solid border-gray-200_01 p-4">
                             <Text
                                 as="p"
                                 className="flex h-[40px] w-[40px] items-center justify-center rounded-[20px] border-2 border-solid border-black-900 text-center text-[16px] font-medium !text-black-900">
                                 03
                             </Text>
-                            <Text size="texts" as="p" className="mb-2.5 self-end text-[14px] font-medium text-black-900">
+                            <Text size="texts" as="p" className="mb-2.5 self-end text-[14px] font-medium !text-black-900">
                                 Payment info
                             </Text>
                         </div>

@@ -26,7 +26,7 @@ export default function CheckoutStepsSection() {
                                 Shipping address
                             </Text>
                         </div>
-                        <div className="flex w-full flex-wrap items-center gap-4 px-6 sm:px-5">
+                        <div className="flex w-full flex-wrap items-center gap-4 border-r border-solid border-gray-200_01 px-6 py-4 sm:px-5">
                             <Text
                                 as="p"
                                 className="flex h-[40px] w-[40px] items-center justify-center rounded-[20px] border-2 border-solid border-gray-200_01 text-center 
