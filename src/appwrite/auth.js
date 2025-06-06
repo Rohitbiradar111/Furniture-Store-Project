@@ -61,7 +61,6 @@ export class AuthService {
     async getCurrentUser() {
         try {
             const user = await this.account.get();
-            console.log("User retrieved successfully:", user);
             return user;
         } catch (error) {
             console.log("auth.js => getCurrentUser => ", error);
