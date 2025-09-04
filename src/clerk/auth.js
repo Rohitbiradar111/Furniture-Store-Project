@@ -52,8 +52,8 @@ class ClerkAuthService {
       await this.isLoaded;
       return this.clerk.client.signIn.authenticateWithRedirect({
         strategy: "oauth_google",
-        redirectUrl: "http://localhost:5173/login", // login page
-        redirectUrlComplete: "http://localhost:5173/", // home page
+        redirectUrl: "https://furnistorewebsite.netlify.app/login",
+        redirectUrlComplete: "https://furnistorewebsite.netlify.app/",
       });
     } catch (error) {
       console.error(error.message);
@@ -65,8 +65,8 @@ class ClerkAuthService {
       await this.isLoaded;
       return this.clerk.client.signIn.authenticateWithRedirect({
         strategy: "oauth_github",
-        redirectUrl: "http://localhost:5173/login",
-        redirectUrlComplete: "http://localhost:5173/",
+        redirectUrl: "https://furnistorewebsite.netlify.app/login",
+        redirectUrlComplete: "https://furnistorewebsite.netlify.app/",
       });
     } catch (error) {
       console.error(error.message);
@@ -78,8 +78,8 @@ class ClerkAuthService {
       await this.isLoaded;
       return this.clerk.client.signIn.authenticateWithRedirect({
         strategy: "oauth_linkedin_oidc",
-        redirectUrl: "http://localhost:5173/login",
-        redirectUrlComplete: "http://localhost:5173/",
+        redirectUrl: "https://furnistorewebsite.netlify.app/login",
+        redirectUrlComplete: "https://furnistorewebsite.netlify.app/",
       });
     } catch (error) {
       console.error(error.message);
