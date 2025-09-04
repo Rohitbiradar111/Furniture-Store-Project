@@ -1,7 +1,7 @@
 <div align="center">
   <div>
     <a href="https://furnistorewebsite.netlify.app/" target="_blank">
-      <img src="https://github.com/user-attachments/assets/28f925ef-2479-49a4-976b-15ecbe7acbfb" alt="Project Image">
+      <img src="https://github.com/user-attachments/assets/e1ef10fb-2674-4af9-8f62-865bfae60d2c" alt="Project Image">
     </a>
   </div>
   <h1 align="center">FurniStore - Furniture Store Website</h1>
