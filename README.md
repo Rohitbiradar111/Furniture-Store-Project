@@ -25,7 +25,7 @@ FurniStore is a modern Furniture Store platform built with React and Vite, featu
 
 - React
 - TailwindCSS
-- Appwrite
+- Clerk
 - EmailJS
 - Redux Toolkit(RTK)
 - TailwindCSS Forms
@@ -67,8 +67,6 @@ FurniStore is a modern Furniture Store platform built with React and Vite, featu
 
 - User Messaging via EmailJS for direct in-app email sending.
 
-- Backend Services Powered by Appwrite, including authentication and data handling.
-
 ## <a name="getting-started">📦 Getting Started</a>
 
 Follow these steps to set up the project locally on your machine.
@@ -99,7 +97,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 
 [TailWind CSS](https://tailwindcss.com/)
 
-[Appwrite](https://appwrite.io/)
+[Clerk](https://clerk.com/)
 
 [React Hook Form](https://react-hook-form.com/)
 
