@@ -1,8 +1,7 @@
-import React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../../components/Footer";
-import Header1 from "../../components/Header1";
-import BreadcrumbSection from "./BreadcrumbSection";
+import { Footer, Header1 } from "components";
+import { Link } from "react-router-dom";
+import { BsChevronRight } from "react-icons/bs";
 import CartSection from "./CartSection";
 
 export default function CartPage() {
@@ -12,17 +11,32 @@ export default function CartPage() {
         <title>Cart - FurniStore</title>
         <meta
           name="description"
-          content="Review your shopping cart and proceed to secure checkout. Choose from free shipping, express, or pickup options. Apply coupons for additional savings on your quality furniture selections."
+          content="Review your shopping cart and proceed to secure checkout."
         />
       </Helmet>
-      <div className="flex w-full flex-col gap-8 bg-white-a700 sm:gap-6">
+      <div className="flex w-full flex-col md:gap-8 gap-6">
         <div>
           <Header1 />
-          <BreadcrumbSection />
+
+          <div className="flex justify-start items-center px-20 pt-8 gap-2">
+            <Link to="/">
+              <p className="hover:scale-125 text-base md:text-[18px] font-normal">
+                Home
+              </p>
+            </Link>
+            <BsChevronRight className="scale-[1.3]" />
+            <Link to="/cart">
+              <p className="hover:scale-125 text-base md:text-[18px] font-normal">
+                Cart
+              </p>
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-16 mb-24 md:gap-12 sm:gap-8 sm:mb-16">
+
+        <div className="flex flex-col md:mb-24 md:gap-12 gap-8 mb-16">
           <CartSection />
         </div>
+
         <Footer />
       </div>
     </>

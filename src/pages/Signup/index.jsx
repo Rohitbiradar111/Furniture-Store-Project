@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Text, Button, Img, Input, Heading } from "../../components";
+import { Button, Input } from "../../components";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import authService from "../../appwrite/auth.js";
+import clerkAuthService from "../../clerk/auth.js";
 import { login as authLogin } from "../../store/authSlice.js";
+import { IoMailOutline, IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
+import { RiLockPasswordLine } from "react-icons/ri";
 
 export default function Signup() {
   const {
@@ -29,13 +31,13 @@ export default function Signup() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const currentUser = await authService.getCurrentUser();
+        const currentUser = await clerkAuthService.getCurrentUser();
         if (currentUser) {
           dispatch(authLogin(currentUser));
           navigate("/");
         }
       } catch (error) {
-        console.log("No active session");
+        console.error(error.message);
       }
     };
     checkSession();
@@ -44,9 +46,9 @@ export default function Signup() {
   const createUserAccount = async (data) => {
     setError("");
     try {
-      const account = await authService.createAccount(data);
+      const account = await clerkAuthService.createAccount(data);
       if (account) {
-        const userData = await authService.getCurrentUser();
+        const userData = await clerkAuthService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
         navigate("/");
       }
@@ -57,28 +59,28 @@ export default function Signup() {
 
   const googleLogin = async () => {
     try {
-      await authService.HandleGoogleLogin();
+      await clerkAuthService.HandleGoogleLogin();
     } catch (error) {
-      setError("Google login failed. Please try again.");
-      console.error("Google Login Error:", error.message);
+      setError("Google login failed. Please try again later.");
+      console.error(error.message);
     }
   };
 
   const githubLogin = async () => {
     try {
-      await authService.HandleGithubLogin();
+      await clerkAuthService.HandleGithubLogin();
     } catch (error) {
-      setError("Github login failed. Please try again.");
-      console.error("Github Login Error:", error.message);
+      setError("Github login failed. Please try again later.");
+      console.error(error.message);
     }
   };
 
   const linkedinLogin = async () => {
     try {
-      await authService.HandleLinkedinLogin();
+      await clerkAuthService.HandleLinkedinLogin();
     } catch (error) {
-      setError("Linkedin login failed. Please try again.");
-      console.error("Linkedin Login Error:", error.message);
+      setError("Linkedin login failed. Please try again later.");
+      console.error(error.message);
     }
   };
 
@@ -91,28 +93,29 @@ export default function Signup() {
           content="Join the FurniStore community. Register for an account to enjoy easy shopping, exclusive offers, and a seamless checkout experience. Sign up now!"
         />
       </Helmet>
-      <div className="flex min-h-screen w-full items-center justify-center bg-white-a700 bg-[url(/images/img_signin.png)] bg-cover bg-no-repeat py-8 md:py-4 sm:py-2">
-        <div className="container mx-auto flex justify-center px-4 sm:px-2">
-          <div className="w-full max-w-md rounded-2xl bg-white-a700 py-8 px-6 sm:py-4 sm:px-4 shadow-lg">
-            <Heading
-              as="h1"
-              className="text-4xl font-medium mb-6 text-left sm:text-3xl"
-            >
+      <div className="flex w-full items-center justify-center">
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-md shadow-2xl rounded-3xl scale-[.89] md:scale-100 px-5 pt-8 pb-10 md:-skew-x-12 md:skew-y-12">
+            <h1 className="text-3xl md:text-4xl mb-6 text-center md:skew-x-[12deg] md:-skew-y-[11.45deg]">
               Signup
-            </Heading>
-            {error && <p className="text-red-600 mb-4 text-center">{error}</p>}
+            </h1>
+            {error && (
+              <p className="text-red-600 mb-4 text-center md:skew-x-[12deg] md:-skew-y-[11.45deg]">
+                {error}
+              </p>
+            )}
             {errors.email && (
-              <p className="text-red-600 text-center mb-4">
-                Invalid email address
+              <p className="text-red-600 text-center mb-4 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
+                Email is required
               </p>
             )}
             {errors.password && (
-              <p className="text-red-600 text-center mb-4">
+              <p className="text-red-600 text-center mb-4 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                 Password is required
               </p>
             )}
             {errors.confirmpassword && (
-              <p className="text-red-600 text-center mb-4">
+              <p className="text-red-600 text-center mb-4 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                 {errors.confirmpassword.message}
               </p>
             )}
@@ -120,25 +123,16 @@ export default function Signup() {
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-4">
                   <div className="flex flex-col gap-2">
-                    <Text
-                      size="texts"
-                      as="p"
-                      className="text-lg font-sans text-black-900 pl-2"
-                    >
+                    <p className="text-lg pl-2 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                       Email:
-                    </Text>
+                    </p>
                     <Input
-                      shape="round"
                       type="email"
                       name="Email Field"
                       placeholder="Enter your email"
-                      className="w-full rounded-2xl px-4 py-2 text-base text-black-900 border border-gray-300 focus:border-lime-900"
+                      className="w-full rounded-2xl border border-gray-300 px-4 py-2 text-base text-black md:skew-x-[12deg] md:-skew-y-[11.45deg] focus-within:outline-dashed focus-within:outline-blue-500"
                       prefix={
-                        <Img
-                          src="images/img_checkmark_gray_500.svg"
-                          alt="email logo"
-                          className="h-5 w-6 object-contain mr-2"
-                        />
+                        <IoMailOutline className="md:h-5 md:w-6 object-contain mr-2 h-4 w-5 text-gray-400 scale-105" />
                       }
                       {...register("email", {
                         required: true,
@@ -146,32 +140,23 @@ export default function Signup() {
                           matchPatern: (value) =>
                             /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(
                               value
-                            ) || "Email address must be a valid address",
+                            ) || "Email address must be valid",
                         },
                       })}
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Text
-                      size="texts"
-                      as="p"
-                      className="text-lg font-sans text-black-900 pl-2"
-                    >
+                    <p className="text-lg pl-2 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                       Password:
-                    </Text>
+                    </p>
                     <Input
-                      shape="round"
                       name="Password Field"
                       placeholder="Enter your password"
-                      className="w-full rounded-2xl px-4 py-2 text-base text-black-900 border border-gray-300 focus:border-lime-900"
+                      className="w-full rounded-2xl border border-gray-300 px-4 py-2 text-base text-black md:skew-x-[12deg] md:-skew-y-[11.45deg] focus-within:outline-dashed focus-within:outline-blue-500"
                       id="pass"
                       type={showPassword ? "text" : "password"}
                       prefix={
-                        <Img
-                          src="images/img_location_gray_500.svg"
-                          alt="password logo"
-                          className="h-5 w-6 object-contain mr-2"
-                        />
+                        <RiLockPasswordLine className="h-5 w-6 object-contain mr-2 text-gray-400" />
                       }
                       suffix={
                         <button
@@ -180,19 +165,9 @@ export default function Signup() {
                           onClick={() => setShowPassword((prev) => !prev)}
                         >
                           {showPassword ? (
-                            <Img
-                              title="Hide password"
-                              src="images/img_eye_close.svg"
-                              alt="hide password"
-                              className="h-5 w-5"
-                            />
+                            <IoEyeOffOutline className="h-5 w-5" />
                           ) : (
-                            <Img
-                              title="Show password"
-                              src="images/img_eye_open.svg"
-                              alt="show password"
-                              className="h-5 w-5"
-                            />
+                            <IoEyeOutline className="h-5 w-5" />
                           )}
                         </button>
                       }
@@ -200,26 +175,17 @@ export default function Signup() {
                     />
                   </div>
                   <div className="flex flex-col gap-2">
-                    <Text
-                      size="texts"
-                      as="p"
-                      className="text-lg font-sans text-black-900 pl-2"
-                    >
+                    <p className="text-lg pl-2 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                       Confirm Password:
-                    </Text>
+                    </p>
                     <Input
-                      shape="round"
                       name="Confirm Password Field"
                       placeholder="Confirm your password"
-                      className="w-full rounded-2xl px-4 py-2 text-base text-black-900 border border-gray-300 focus:border-lime-900"
+                      className="w-full rounded-2xl border border-gray-300 px-4 py-2 text-base text-black md:skew-x-[12deg] md:-skew-y-[11.45deg] focus-within:outline-dashed focus-within:outline-blue-500"
                       id="confirmpassword"
                       type={showConfirmPassword ? "text" : "password"}
                       prefix={
-                        <Img
-                          src="images/img_location_gray_500.svg"
-                          alt="password logo"
-                          className="h-5 w-6 isplay: block;object-contain mr-2"
-                        />
+                        <RiLockPasswordLine className="h-5 w-6 object-contain mr-2 text-gray-400" />
                       }
                       suffix={
                         <button
@@ -230,19 +196,9 @@ export default function Signup() {
                           }
                         >
                           {showConfirmPassword ? (
-                            <Img
-                              title="Hide password"
-                              src="images/img_eye_close.svg"
-                              alt="hide password"
-                              className="h-5 w-5"
-                            />
+                            <IoEyeOffOutline className="h-5 w-5" />
                           ) : (
-                            <Img
-                              title="Show password"
-                              src="images/img_eye_open.svg"
-                              alt="show password"
-                              className="h-5 w-5"
-                            />
+                            <IoEyeOutline className="h-5 w-5" />
                           )}
                         </button>
                       }
@@ -254,100 +210,76 @@ export default function Signup() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-3 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                   <Button
-                    size="5xl"
-                    variant="fill"
-                    shape="round"
-                    className="w-full rounded-2xl py-3 font-semibold text-base bg-lime-900 text-white-a700 hover:bg-lime-800 active:bg-green-500"
+                    className="w-full rounded-2xl py-3 font-semibold text-base bg-blue-500 text-white hover:bg-blue-700"
                     onClick={handleSubmit(createUserAccount)}
                   >
                     SIGNUP
                   </Button>
-                  <Text
-                    size="texts"
-                    as="p"
-                    className="text-sm font-normal text-center"
-                  >
-                    <span className="text-gray-600">
-                      By clicking Signup you agree to our&nbsp;
-                    </span>
-                    <span className="font-medium text-lime-900">
+                  <p className="text-sm font-normal text-center">
+                    <span>By clicking Signup you agree to our&nbsp;</span>
+                    <span className="font-medium text-blue-500">
                       Terms of use&nbsp;
                     </span>
-                    <span className="text-gray-600">and&nbsp;</span>
-                    <span className="font-medium text-lime-900">
+                    <span>and&nbsp;</span>
+                    <span className="font-medium text-blue-500">
                       Privacy Policy
                     </span>
-                  </Text>
+                  </p>
                 </div>
-                <div className="flex items-center justify-center gap-4 sm:gap-2">
+                <div className="flex items-center justify-center gap-2 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                   <div className="h-px flex-1 bg-gray-200" />
-                  <Text as="p" className="text-base font-normal text-black-900">
-                    Or
-                  </Text>
+                  <p className="text-base md:text-lg font-normal">Or</p>
                   <div className="h-px flex-1 bg-gray-200" />
                 </div>
-                <div className="flex justify-center gap-3 sm:gap-2 flex-wrap">
+                <div className="flex justify-center gap-1 flex-wrap md:skew-x-[12deg] md:-skew-y-[11.45deg]">
                   <Button
                     title="Sign in with Github"
-                    color="white_A700"
-                    size="md"
-                    variant="fill"
-                    className="w-24 rounded-xl px-2 py-2 hover:bg-gray-100"
+                    className="w-24 rounded-xl p-2"
                     onClick={githubLogin}
                   >
-                    <Img
+                    <img
                       src="images/img_github_logo.svg"
                       alt="github logo"
                       className="h-6 w-6"
+                      loading="lazy"
+                      draggable="false"
                     />
                   </Button>
                   <Button
                     title="Sign in with Google"
-                    color="white_A700"
-                    size="md"
-                    variant="fill"
-                    className="w-24 rounded-xl px-2 py-2 hover:bg-gray-100"
+                    className="w-24 rounded-xl p-2"
                     onClick={googleLogin}
                   >
-                    <Img
+                    <img
                       src="images/img_google_logo.svg"
                       alt="google logo"
                       className="h-6 w-6"
+                      loading="lazy"
+                      draggable="false"
                     />
                   </Button>
                   <Button
                     title="Sign in with Linkedin"
-                    color="white_A700"
-                    size="md"
-                    variant="fill"
-                    className="w-24 rounded-xl px-2 py-2 hover:bg-gray-100"
+                    className="w-24 rounded-xl p-2"
                     onClick={linkedinLogin}
                   >
-                    <Img
+                    <img
                       src="images/img_linkedin_logo.svg"
                       alt="linkedin logo"
-                      className="h-6 w-6"
+                      className="h-8 w-8"
+                      loading="lazy"
+                      draggable="false"
                     />
                   </Button>
                 </div>
-                <div className="flex justify-center flex-wrap gap-2">
-                  <Text
-                    size="texts"
-                    as="p"
-                    className="text-lg font-normal text-black-900"
-                  >
-                    Existing User?
-                  </Text>
+                <div className="flex justify-center flex-wrap gap-2 md:skew-x-[12deg] md:-skew-y-[11.45deg]">
+                  <p className="text-lg font-normal">Existing User ?</p>
                   <Link to="/login">
-                    <Text
-                      size="texts"
-                      as="p"
-                      className="text-lg font-medium text-lime-900 underline hover:text-lime-800"
-                    >
+                    <p className="text-lg font-medium underline text-blue-500 hover:text-blue-700">
                       Login
-                    </Text>
+                    </p>
                   </Link>
                 </div>
               </div>
